@@ -122,9 +122,9 @@ export function ProductForm({ initialData, onSubmit }: ProductFormProps) {
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                   </FormControl>
-                  <SelectContent>
+                  <SelectContent className="bg-white dark:bg-gray-900 border-gray-200 dark:border-gray-700 max-h-60 overflow-y-auto z-50" position="popper" sideOffset={5}>
                     {categories.map((category) => (
-                      <SelectItem key={category.id} value={category.slug}>
+                      <SelectItem key={category.id} value={category.slug} className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
                         {category.name}
                       </SelectItem>
                     ))}

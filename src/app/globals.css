@@ -57,3 +57,57 @@ body.dark {
   background-color: hsl(220 13% 18%);
   color: hsl(220 9% 46%);
 }
+
+/* Custom scrollbar styles */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+  
+  .scrollbar-thumb-gray-300 {
+    scrollbar-color: #d1d5db transparent;
+  }
+  
+  .scrollbar-track-gray-100 {
+    scrollbar-color: transparent #f3f4f6;
+  }
+  
+  .dark .scrollbar-thumb-gray-600 {
+    scrollbar-color: #4b5563 transparent;
+  }
+  
+  .dark .scrollbar-track-gray-800 {
+    scrollbar-color: transparent #1f2937;
+  }
+  
+  /* Webkit scrollbar styles for better cross-browser support */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: #f3f4f6;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #d1d5db;
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #4b5563;
+  }
+  
+  .dark .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+}

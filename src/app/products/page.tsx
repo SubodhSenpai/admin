@@ -79,6 +79,30 @@ export default function ProductsPage() {
     fetchCategories();
   }, []);
 
+  // Refresh categories when dialog opens (to get any newly added categories)
+  useEffect(() => {
+    if (dialogOpen) {
+      fetchCategories();
+    }
+  }, [dialogOpen]);
+
+  // Refresh categories when page becomes visible (in case user added categories in another tab)
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        fetchCategories();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('focus', fetchCategories);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('focus', fetchCategories);
+    };
+  }, []);
+
   const handleSearch = () => {
     const categoryToSearch = selectedCategory === "all" ? "" : selectedCategory;
     fetchProducts(searchQuery, categoryToSearch, 1);
@@ -201,10 +225,10 @@ export default function ProductsPage() {
             <SelectTrigger className="w-full sm:w-48">
               <SelectValue placeholder="Filter by category" />
             </SelectTrigger>
-            <SelectContent className="bg-white dark:bg-white border-gray-200 dark:border-gray-300">
-              <SelectItem value="all" className="text-gray-700 hover:bg-gray-100">All Categories</SelectItem>
+            <SelectContent className="bg-white dark:bg-gray-900 border-border max-h-60 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 dark:scrollbar-thumb-gray-600 dark:scrollbar-track-gray-800">
+              <SelectItem value="all" className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">All Categories</SelectItem>
               {categories.map((category) => (
-                <SelectItem key={category.id} value={category.slug} className="text-gray-700 hover:bg-gray-100">
+                <SelectItem key={category.id} value={category.slug} className="text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800">
                   {category.name}
                 </SelectItem>
               ))}
