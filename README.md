@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Product Category Manager
+
+A modern web application for managing products and categories built with Next.js, TypeScript, and Tailwind CSS.
+
+## Features
+
+- **Product Management**: Create, read, update, and delete products
+- **Category Management**: Organize products with categories
+- **Modern UI**: Clean and responsive interface using shadcn/ui components
+- **Form Validation**: Client-side validation using Zod
+- **Type Safety**: Full TypeScript support
+- **Real-time Updates**: Instant feedback with toast notifications
+
+## Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn/ui
+- **Form Handling**: React Hook Form with Zod validation
+- **Icons**: Lucide React
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── layout.tsx          # Root layout with sidebar
+│   ├── page.tsx            # Dashboard
+│   ├── products/
+│   │   └── page.tsx        # Products page
+│   └── categories/
+│       └── page.tsx        # Categories page
+├── components/
+│   ├── sidebar.tsx         # Navigation sidebar
+│   ├── ui/                 # Reusable UI components
+│   ├── products/           # Product-specific components
+│   └── categories/         # Category-specific components
+├── lib/
+│   ├── api.ts             # API utilities
+│   ├── validations.ts     # Zod schemas
+│   └── utils.ts           # Utility functions
+└── types/
+    └── index.ts           # TypeScript type definitions
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. **Open your browser**:
+   Navigate to [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Dashboard
+The dashboard provides an overview and quick access to manage products and categories.
 
-## Learn More
+### Products
+- View all products in a table format
+- Add new products with name, description, price, and category
+- Edit existing products
+- Delete products with confirmation
 
-To learn more about Next.js, take a look at the following resources:
+### Categories
+- View all categories in a table format
+- Add new categories with name and description
+- Edit existing categories
+- Delete categories with confirmation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Development
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application uses mock data storage for demonstration purposes. In a production environment, you would replace the API functions in `src/lib/api.ts` with actual backend calls.
 
-## Deploy on Vercel
+## Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+
+This project is open source and available under the [MIT License](LICENSE).
